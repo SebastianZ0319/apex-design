@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>Apex Design | Santiago Bedoya</title>
+    <meta name="description" content="Apex Design — dirección de arte y diseño para el automovilismo. Take a perfect line.">
+    <link rel="icon" href="img/web/isotipo.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="img/web/hero-sm.webp" imagesrcset="img/web/hero-sm.webp 800w, img/web/hero-lg.webp 1600w" imagesizes="100vw" fetchpriority="high">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+    <!-- ============ LOADER ============ -->
+    <div class="loader" id="loader">
+        <img src="img/web/isotipo.webp" alt="Apex" class="loader__logo">
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header" id="header">
+        <a href="#inicio" class="header__logo">
+            <img src="img/web/logo-apex.webp" alt="Apex Design">
+        </a>
+        <nav class="nav" id="nav">
+            <a href="#inicio" class="nav__link active">Inicio</a>
+            <a href="#quienes-somos" class="nav__link">Quiénes somos</a>
+            <a href="#servicio" class="nav__link">Servicio</a>
+            <a href="#proyectos" class="nav__link">Proyectos</a>
+            <a href="#sobre-mi" class="nav__link">Sobre mí</a>
+            <a href="#contacto" class="nav__link">Contacto</a>
+        </nav>
+        <button class="burger" id="burger" aria-label="Abrir menú">
+            <span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- ============ INICIO ============ -->
+        <section class="hero" id="inicio">
+            <img class="hero__media" src="img/web/hero-sm.webp" srcset="img/web/hero-sm.webp 800w, img/web/hero-lg.webp 1600w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <span class="eyebrow">Apex Design · Diseño para el automovilismo</span>
+                <h1 class="title-xl">Take a<br>perfect <span class="accent">line</span></h1>
+                <a href="#quienes-somos" class="discover">Descubrir <i class="discover__icon"></i></a>
+            </div>
+            <div class="hero__scroll"><span></span></div>
+        </section>
+
+        <!-- ============ QUIÉNES SOMOS ============ -->
+        <section class="section" id="quienes-somos">
+            <div class="section__head reveal">
+                <span class="eyebrow">Quiénes somos</span>
+                <h2 class="title-lg">El punto donde todo encaja</h2>
+                <p class="section__text">Apex nace del automovilismo: la línea perfecta que toma un piloto al entrar en una curva. En diseño, esa línea representa <strong>precisión, intención y dirección</strong>.</p>
+            </div>
+
+            <div class="tiles">
+                <article class="tile reveal">
+                    <img class="tile__media" src="img/web/manifiesto-sm.webp" srcset="img/web/manifiesto-sm.webp 800w, img/web/manifiesto-lg.webp 1466w" sizes="(max-width: 640px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
+                    <div class="tile__content">
+                        <span class="eyebrow">Manifiesto</span>
+                        <h3 class="title-md">Precisión e intención</h3>
+                        <p class="tile__text">Cada pieza se diseña como se traza una curva: con dirección clara y sin trazos de sobra.</p>
+                    </div>
+                </article>
+                <article class="tile reveal">
+                    <img class="tile__media" src="img/web/comunidad-sm.webp" srcset="img/web/comunidad-sm.webp 800w, img/web/comunidad-lg.webp 1123w" sizes="(max-width: 640px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
+                    <div class="tile__content">
+                        <span class="eyebrow">Comunidad</span>
+                        <h3 class="title-md">El automovilismo también se diseña</h3>
+                        <p class="tile__text">Pilotos, clubes, eventos, talleres, coleccionistas y marcas de autopartes y reprogramación.</p>
+                    </div>
+                </article>
+                <article class="tile reveal">
+                    <img class="tile__media" src="img/web/tracks-neon-sm.webp" srcset="img/web/tracks-neon-sm.webp 800w, img/web/tracks-neon-lg.webp 941w" sizes="(max-width: 640px) 100vw, 50vw" alt="" style="object-position: center 30%" loading="lazy" decoding="async">
+                    <div class="tile__content">
+                        <span class="eyebrow">Metodología</span>
+                        <h3 class="title-md">Attack</h3>
+                        <p class="tile__text">Nuestra forma de encontrar, construir y llevar una idea hasta su punto ideal.</p>
+                    </div>
+                </article>
+                <article class="tile reveal">
+                    <img class="tile__media" src="img/web/livery-lmp-sm.webp" srcset="img/web/livery-lmp-sm.webp 800w, img/web/livery-lmp-lg.webp 1022w" sizes="(max-width: 640px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
+                    <div class="tile__content">
+                        <span class="eyebrow">Modelo de negocio</span>
+                        <h3 class="title-md">B2C</h3>
+                        <p class="tile__text">Servicios creativos directo al consumidor final: personas apasionadas por el diseño, los autos, el arte y los eventos.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ FRANJA DE PATRÓN ============ -->
+        <div class="pattern-band" aria-hidden="true"></div>
+
+        <!-- ============ SERVICIO ============ -->
+        <section class="section section--dark" id="servicio">
+            <div class="section__head reveal">
+                <span class="eyebrow">Servicio</span>
+                <h2 class="title-lg">Lo que hacemos</h2>
+                <p class="section__text">Diseño con identidad propia para quienes viven el automovilismo, en la pista y en el sim racing.</p>
+            </div>
+
+            <div class="services">
+                <article class="service reveal">
+                    <span class="service__num">01</span>
+                    <img class="service__media" src="img/web/livery-asp-sm.webp" srcset="img/web/livery-asp-sm.webp 800w, img/web/livery-asp-lg.webp 974w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw" alt="" loading="lazy" decoding="async">
+                    <h3 class="service__title">Liverys</h3>
+                    <p class="service__text">Diseñamos tu livery de acuerdo a tu marca y tus patrocinadores, sea livery físico o de sim racing.</p>
+                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
+                </article>
+                <article class="service reveal">
+                    <span class="service__num">02</span>
+                    <img class="service__media" src="img/web/tracks-neon-sm.webp" srcset="img/web/tracks-neon-sm.webp 800w, img/web/tracks-neon-lg.webp 941w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw" alt="" loading="lazy" decoding="async">
+                    <h3 class="service__title">Tracks</h3>
+                    <p class="service__text">Tu circuito favorito puedes tenerlo como decoración en tu hogar.</p>
+                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
+                </article>
+                <article class="service reveal">
+                    <span class="service__num">03</span>
+                    <img class="service__media" src="img/web/piezas-track-day-sm.webp" srcset="img/web/piezas-track-day-sm.webp 800w, img/web/piezas-track-day-lg.webp 940w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw" alt="" style="object-position: center 25%" loading="lazy" decoding="async">
+                    <h3 class="service__title">Piezas gráficas</h3>
+                    <p class="service__text">Piezas gráficas para tu evento, taller, marca, track day o meet day.</p>
+                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
+                </article>
+                <article class="service reveal">
+                    <span class="service__num">04</span>
+                    <div class="service__media service__media--pattern"></div>
+                    <h3 class="service__title">Branding</h3>
+                    <p class="service__text">Identidad visual completa para marcas, equipos y comunidades del mundo motor.</p>
+                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
+                </article>
+            </div>
+
+            <!-- Metodología ATTACK -->
+            <div class="method reveal">
+                <div class="method__head">
+                    <span class="eyebrow">Metodología</span>
+                    <h3 class="title-md">Attack</h3>
+                    <p class="method__tags">Agresivo · Limpio · Saturado</p>
+                </div>
+                <ol class="method__steps">
+                    <li><span>01</span>Punto de partida</li>
+                    <li><span>02</span>Recorrido</li>
+                    <li><span>03</span>Puntos clave</li>
+                    <li><span>04</span>Resultado</li>
+                </ol>
+                <p class="method__tools">Blueprint · Design thinking · Codiseño · Validación</p>
+            </div>
+        </section>
+
+        <!-- ============ PROYECTOS ============ -->
+        <section class="section" id="proyectos">
+            <div class="section__head reveal">
+                <span class="eyebrow">Proyectos</span>
+                <h2 class="title-lg">Trabajo en pista</h2>
+                <p class="section__text">Una selección de liverys y piezas gráficas.</p>
+            </div>
+            <div class="gallery">
+                <figure class="gallery__item gallery__item--wide reveal">
+                    <img src="img/web/livery-asp-frente-sm.webp" srcset="img/web/livery-asp-frente-sm.webp 800w, img/web/livery-asp-frente-lg.webp 1469w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Livery ASP Motul sobre Corvette GT" loading="lazy">
+                    <figcaption><span>Livery</span>ASP · Motul #24</figcaption>
+                </figure>
+                <figure class="gallery__item gallery__item--tall reveal">
+                    <img src="img/web/piezas-race-day-sm.webp" srcset="img/web/piezas-race-day-sm.webp 800w, img/web/piezas-race-day-lg.webp 940w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Póster Race Day para Veloce Vext en Suzuka" loading="lazy">
+                    <figcaption><span>Pieza gráfica</span>Race Day · Suzuka</figcaption>
+                </figure>
+                <figure class="gallery__item reveal">
+                    <img src="img/web/livery-lmp-sm.webp" srcset="img/web/livery-lmp-sm.webp 800w, img/web/livery-lmp-lg.webp 1022w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Livery de prototipo LMP número 24" loading="lazy">
+                    <figcaption><span>Livery sim racing</span>Prototipo LMP #24</figcaption>
+                </figure>
+                <figure class="gallery__item reveal">
+                    <img src="img/web/livery-asp-atras-sm.webp" srcset="img/web/livery-asp-atras-sm.webp 800w, img/web/livery-asp-atras-lg.webp 1539w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Vista trasera del livery ASP" loading="lazy">
+                    <figcaption><span>Livery</span>ASP · Vista trasera</figcaption>
+                </figure>
+                <figure class="gallery__item gallery__item--tall reveal">
+                    <img src="img/web/piezas-track-day-sm.webp" srcset="img/web/piezas-track-day-sm.webp 800w, img/web/piezas-track-day-lg.webp 940w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Póster Track Day en el Autódromo de Tocancipá" loading="lazy">
+                    <figcaption><span>Pieza gráfica</span>Track Day · Tocancipá</figcaption>
+                </figure>
+                <figure class="gallery__item gallery__item--wide reveal">
+                    <img src="img/web/tracks-neon-sm.webp" srcset="img/web/tracks-neon-sm.webp 800w, img/web/tracks-neon-lg.webp 941w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Circuitos en neón como decoración de pared" loading="lazy">
+                    <figcaption><span>Tracks</span>Circuitos en neón</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ============ SOBRE MÍ ============ -->
+        <section class="about" id="sobre-mi">
+            <div class="about__photo reveal">
+                <img class="about__img" src="img/web/santiago-sm.webp" srcset="img/web/santiago-sm.webp 800w, img/web/santiago-lg.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="about__info reveal">
+                <span class="eyebrow">Sobre mí</span>
+                <h2 class="title-lg">Santiago<br>Bedoya Sánchez</h2>
+                <p class="about__role">Dirección de arte · Producción audiovisual</p>
+                <p class="section__text">Soy una persona proactiva, creativa y apasionada por la dirección de arte y la producción audiovisual. Mi enfoque se basa en encontrar la <strong>línea perfecta</strong>: un concepto que representa mi marca personal y mi compromiso con crear soluciones visuales estratégicas, innovadoras y con identidad propia.</p>
+                <p class="section__text">Me caracterizo por mi adaptabilidad, iniciativa y disposición para asumir nuevos retos. Cuento con disponibilidad para viajar al extranjero, crecer profesionalmente y aportar mi talento en proyectos nacionales e internacionales.</p>
+
+                <div class="stats">
+                    <div class="stat"><span class="stat__num">B1</span><span class="stat__label">Nivel de inglés</span></div>
+                    <div class="stat"><span class="stat__num">04</span><span class="stat__label">Líneas de servicio</span></div>
+                    <div class="stat"><span class="stat__num">Global</span><span class="stat__label">Disponible para viajar</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACTO ============ -->
+        <section class="section section--dark contact" id="contacto">
+            <div class="contact__info reveal">
+                <span class="eyebrow">Contacto</span>
+                <h2 class="title-lg">Tomemos la curva juntos</h2>
+                <p class="section__text">¿Tienes un livery, un evento o una marca que necesita su línea perfecta? Escríbeme y lo diseñamos.</p>
+                <ul class="contact__list">
+                    <li><span>Email</span><a href="mailto:apexspublicidad2023@gmail.com">apexspublicidad2023@gmail.com</a></li>
+                    <li><span>Teléfono</span><a href="tel:+573132228989">+57 313 222 8989</a></li>
+                    <li><span>Ubicación</span><p>Colombia</p></li>
+                </ul>
+                <div class="socials">
+                    <a href="https://www.instagram.com/santibedoya____/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://wa.me/573132228989" target="_blank" rel="noopener">WhatsApp</a>
+                </div>
+            </div>
+            <form class="form reveal" onsubmit="event.preventDefault()">
+                <div class="form__field"><input type="text" id="nombre" placeholder=" " required><label for="nombre">Nombre</label></div>
+                <div class="form__field"><input type="email" id="email" placeholder=" " required><label for="email">Email</label></div>
+                <div class="form__field"><input type="text" id="asunto" placeholder=" "><label for="asunto">Asunto</label></div>
+                <div class="form__field"><textarea id="mensaje" rows="4" placeholder=" " required></textarea><label for="mensaje">Mensaje</label></div>
+                <button type="submit" class="btn">Enviar mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <img src="img/web/logo-apex.webp" alt="Apex Design" class="footer__logo">
+        <p>© <span id="year"></span> Apex Design · Santiago Bedoya Sánchez. Take a perfect line.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
