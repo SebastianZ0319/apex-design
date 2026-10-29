@@ -46,7 +46,7 @@ const revealObserver = new IntersectionObserver(entries => {
         }
     });
 }, { threshold: .15 });
-// .intro también se observa para encender la luz de "Quiénes somos"
+// .intro también se observa para que el fondo fluido de "Quiénes somos" aparezca al llegar
 document.querySelectorAll('.reveal, .intro').forEach(el => revealObserver.observe(el));
 
 // ============ BANNERS CORREDIZOS ============

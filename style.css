@@ -272,7 +272,7 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
 .tile:hover .discover__icon::after, .tile:focus-visible .discover__icon::after { border-color: var(--black); }
 .tile:focus-visible { outline: 2px solid var(--green); outline-offset: -2px; }
 
-/* ============ QUIÉNES SOMOS (luz que se enciende) ============ */
+/* ============ QUIÉNES SOMOS (fondo fluido) ============ */
 .intro {
     position: relative;
     min-height: 90vh;
@@ -283,41 +283,57 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     padding: clamp(100px, 12vw, 160px) clamp(16px, 6vw, 96px);
     overflow: hidden;
     background: var(--black);
+    isolation: isolate;
 }
-.intro__light {
+/* Manchas lima, negras y blancas muy desenfocadas que se mueven y se mezclan.
+   El fondo es negro (no lima) para que el logo lima no se pierda */
+.fluid {
     position: absolute;
     inset: 0;
+    z-index: -1;
     opacity: 0;
-    transform: scale(.7);
-    transform-origin: top left;
+    transition: opacity 1.5s ease;
     pointer-events: none;
 }
-/* El haz mide el doble de la sección y su centro es la esquina superior izquierda:
-   así puede girar sobre esa esquina como un foco sin dejar bordes vacíos */
-.intro__light::before {
-    --spot: ellipse 35% 50%;
+.intro.visible .fluid { opacity: 1; }
+/* Sombra a la derecha para que el texto se lea sobre las manchas */
+.fluid::after {
     content: '';
     position: absolute;
-    top: -100%; left: -100%;
-    width: 200%; height: 200%;
-    background: radial-gradient(var(--spot) at 50% 50%, var(--green) 0%, rgba(182, 245, 0, .55) 30%, rgba(182, 245, 0, .12) 58%, transparent 75%);
-    transform-origin: 50% 50%;
+    inset: 0;
+    background: linear-gradient(to right, transparent 30%, rgba(0, 0, 0, .55) 55%, rgba(0, 0, 0, .9) 75%);
 }
-/* 1) La luz aparece de a poco desde la esquina (2s)  2) el foco se balancea suave */
-.intro.visible .intro__light { animation: lightOn 2s .2s cubic-bezier(.25, .1, .25, 1) forwards; }
-.intro.visible .intro__light::before { animation: spotSweep 9s 2.2s ease-in-out infinite; }
-@keyframes lightOn {
-    from { opacity: 0; transform: scale(.4); }
-    to   { opacity: 1; transform: scale(1); }
+.fluid__blobs {
+    position: absolute;
+    inset: -20%;
+    filter: blur(70px) saturate(110%);
 }
-@keyframes spotSweep {
-    0%, 100% { transform: rotate(0deg) scale(1); }
-    30%      { transform: rotate(-12deg) scale(1.12); }
-    65%      { transform: rotate(14deg) scale(.92); }
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
 }
+.blob--black { background: radial-gradient(circle, var(--black) 0%, rgba(0, 0, 0, 0) 70%); }
+.blob--white { background: radial-gradient(circle, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 70%); }
+.blob--lime  { background: radial-gradient(circle, var(--green) 0%, rgba(182, 245, 0, 0) 70%); }
+
+.b1 { width: 55vmax; height: 55vmax; top: 0;   left: 5%;  animation: m1 18s ease-in-out infinite; }
+.b2 { width: 50vmax; height: 50vmax; top: 10%; left: 30%; animation: m2 22s ease-in-out infinite; }
+.b3 { width: 45vmax; height: 45vmax; top: 45%; left: 15%; animation: m3 20s ease-in-out infinite; }
+.b4 { width: 40vmax; height: 40vmax; top: 55%; left: 0;   animation: m4 24s ease-in-out infinite; }
+.b5 { width: 38vmax; height: 38vmax; top: 30%; left: 55%; animation: m5 26s ease-in-out infinite; }
+.b6 { width: 35vmax; height: 35vmax; top: 70%; left: 45%; animation: m6 21s ease-in-out infinite; }
+
+@keyframes m1 { 0%, 100% { transform: translate(0, 0) scale(1); }    50% { transform: translate(20%, 30%) scale(1.25); } }
+@keyframes m2 { 0%, 100% { transform: translate(0, 0) scale(1); }    50% { transform: translate(-35%, 25%) scale(.85); } }
+@keyframes m3 { 0%, 100% { transform: translate(0, 0) scale(1); }    33% { transform: translate(30%, -30%) scale(1.15); } 66% { transform: translate(-15%, -10%) scale(.9); } }
+@keyframes m4 { 0%, 100% { transform: translate(0, 0) scale(1.1); }  50% { transform: translate(35%, -40%) scale(.9); } }
+@keyframes m5 { 0%, 100% { transform: translate(0, 0) scale(1); }    50% { transform: translate(-40%, 20%) scale(1.2); } }
+@keyframes m6 { 0%, 100% { transform: translate(0, 0) scale(.9); }   50% { transform: translate(-30%, -45%) scale(1.15); } }
 .intro__brand, .intro__info { position: relative; z-index: 1; }
 .intro__brand { display: flex; align-items: flex-end; gap: 1.2rem; }
-.intro__logo { width: min(320px, 55%); height: auto; filter: drop-shadow(0 6px 24px rgba(0, 0, 0, .35)); }
+.intro__logo { width: min(320px, 55%); height: auto; filter: drop-shadow(0 0 28px rgba(0, 0, 0, .7)); }
+.intro__name { text-shadow: 0 2px 16px rgba(0, 0, 0, .6); }
 .intro__name { font-size: clamp(1.1rem, 2vw, 1.7rem); font-weight: 500; white-space: nowrap; }
 .intro__info .title-lg { margin-bottom: 1.5rem; }
 
@@ -608,7 +624,7 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     .btn { align-self: stretch; text-align: center; }
     .about__actions { gap: .6rem; }
     .about__actions .btn { padding-inline: .8rem; font-size: .7rem; }
-    .intro__light::before { --spot: ellipse 60% 35%; }
+    .fluid::after { background: linear-gradient(to bottom, transparent 25%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, .9) 70%); }
     .sw { width: 52px; height: 52px; font-size: 1.3rem; border-radius: 12px; }
     .sw--canva { font-size: .8rem; }
     .brand img { height: 36px; }
@@ -621,5 +637,5 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    .pattern-band, .marquee__track, .intro.visible .intro__light::before { animation: none; }
+    .pattern-band, .marquee__track, .blob { animation: none; }
 }
