@@ -52,7 +52,7 @@ document.querySelectorAll('.reveal, .intro').forEach(el => revealObserver.observ
 // ============ BANNERS CORREDIZOS ============
 // Repite los logos hasta que el grupo sea más ancho que la pantalla y luego lo duplica:
 // al moverse -50% la copia queda justo donde empezó el original, así el bucle no salta.
-const MARQUEE_SPEED = 90; // píxeles por segundo, igual en cualquier pantalla
+const MARQUEE_SPEED = 45; // píxeles por segundo, igual en cualquier pantalla
 const buildMarquee = marquee => {
     const track = marquee.querySelector('.marquee__track');
     const group = track.querySelector('.marquee__group');

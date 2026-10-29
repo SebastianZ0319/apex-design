@@ -282,11 +282,10 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     gap: 3rem;
     padding: clamp(100px, 12vw, 160px) clamp(16px, 6vw, 96px);
     overflow: hidden;
-    background: var(--black);
+    background: var(--green);
     isolation: isolate;
 }
-/* Manchas lima, negras y blancas muy desenfocadas que se mueven y se mezclan.
-   El fondo es negro (no lima) para que el logo lima no se pierda */
+/* Fondo fluido: manchas lima, negras y blancas muy desenfocadas que se mueven y se mezclan */
 .fluid {
     position: absolute;
     inset: 0;
@@ -296,14 +295,6 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     pointer-events: none;
 }
 .intro.visible .fluid { opacity: 1; }
-/* Sombra a la derecha para que el texto se lea sobre las manchas */
-.fluid::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, transparent 30%, rgba(0, 0, 0, .55) 55%, rgba(0, 0, 0, .9) 75%);
-    z-index: 2;
-}
 .fluid__blobs {
     position: absolute;
     inset: -20%;
@@ -315,7 +306,7 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     will-change: transform;
 }
 .blob--black { background: radial-gradient(circle, var(--black) 0%, rgba(0, 0, 0, 0) 70%); }
-.blob--white { background: radial-gradient(circle, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 70%); }
+.blob--white { background: radial-gradient(circle, var(--white) 0%, rgba(255, 255, 255, 0) 70%); }
 .blob--lime  { background: radial-gradient(circle, var(--green) 0%, rgba(182, 245, 0, 0) 70%); }
 
 .b1 { width: 55vmax; height: 55vmax; top: 0;   left: 45%; animation: m1 18s ease-in-out infinite; }
@@ -342,12 +333,15 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
-.intro__brand, .intro__info { position: relative; z-index: 1; }
+/* Como en la referencia: el contenido invierte el color de lo que tiene detrás,
+   así el logo y el texto siempre contrastan aunque las manchas se muevan */
+.intro__brand, .intro__info { position: relative; z-index: 1; mix-blend-mode: difference; }
 .intro__brand { display: flex; align-items: flex-end; gap: 1.2rem; }
-.intro__logo { width: min(320px, 55%); height: auto; filter: drop-shadow(0 0 28px rgba(0, 0, 0, .7)); }
-.intro__name { text-shadow: 0 2px 16px rgba(0, 0, 0, .6); }
+.intro__logo { width: min(320px, 55%); height: auto; }
 .intro__name { font-size: clamp(1.1rem, 2vw, 1.7rem); font-weight: 500; white-space: nowrap; }
 .intro__info .title-lg { margin-bottom: 1.5rem; }
+.intro .section__text, .intro .section__text strong { color: var(--white); }
+.intro .section__text { font-weight: 500; }
 
 /* ============ BANNERS CORREDIZOS (softwares y marcas) ============ */
 .marquee {
@@ -355,6 +349,15 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     padding: clamp(28px, 4vw, 44px) 0;
     border-block: 1px solid var(--line);
     mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__title {
+    text-align: center;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 800;
+    font-stretch: 125%;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: clamp(20px, 3vw, 32px);
 }
 .marquee__track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
@@ -636,7 +639,6 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     .btn { align-self: stretch; text-align: center; }
     .about__actions { gap: .6rem; }
     .about__actions .btn { padding-inline: .8rem; font-size: .7rem; }
-    .fluid::after { background: linear-gradient(to bottom, transparent 25%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, .9) 70%); }
     .sw { width: 52px; height: 52px; font-size: 1.3rem; border-radius: 12px; }
     .sw--canva { font-size: .8rem; }
     .brand img { height: 36px; }
