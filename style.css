@@ -300,49 +300,27 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     inset: -20%;
     filter: blur(70px) saturate(110%);
 }
+/* Lámpara de lava desenfocada: cada mancha sube desde abajo estirándose, se aplasta arriba
+   y vuelve a bajar (alternate). Tamaño, posición, duración y retraso vienen del HTML */
 .blob {
     position: absolute;
+    top: 80%;
+    left: var(--x);
+    width: var(--s);
+    height: var(--s);
     border-radius: 50%;
     will-change: transform;
+    animation: lava var(--t) var(--delay) ease-in-out infinite alternate;
 }
+.blob--black { background: radial-gradient(circle, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, 0) 70%); }
 .blob--white { background: radial-gradient(circle, var(--white) 0%, rgba(255, 255, 255, 0) 70%); }
 .blob--lime  { background: radial-gradient(circle, var(--green) 0%, rgba(182, 245, 0, 0) 70%); }
 
-.b1 { width: 55vmax; height: 55vmax; top: 0;   left: 45%; animation: m1 18s ease-in-out infinite; }
-.b2 { width: 50vmax; height: 50vmax; top: 10%; left: 0;   animation: m2 22s ease-in-out infinite; }
-.b3 { width: 45vmax; height: 45vmax; top: 45%; left: 35%; animation: m3 20s ease-in-out infinite; }
-.b4 { width: 40vmax; height: 40vmax; top: 55%; left: 0;   animation: m4 24s ease-in-out infinite; }
-.b5 { width: 38vmax; height: 38vmax; top: 30%; left: 55%; animation: m5 26s ease-in-out infinite; }
-.b6 { width: 35vmax; height: 35vmax; top: 70%; left: 60%; animation: m6 21s ease-in-out infinite; }
-
-@keyframes m2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40%, 30%) scale(.85); } }
-@keyframes m4 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(50%, -30%) scale(1.3); } }
-@keyframes m5 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-35%, 45%) scale(.8); } }
-
-/* Manchas oscuras (b1, b3, b6): recorrido curvo de varios puntos, velocidad constante
-   y forma que se deforma al moverse, para que fluyan como líquido sin frenar */
-.blob--black {
-    background: radial-gradient(circle, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, 0) 70%);
-    animation-timing-function: linear; /* va después de .b1/.b3/.b6, así que gana */
-}
-@keyframes m1 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1);         border-radius: 50%; }
-    20%      { transform: translate(-12%, 18%) rotate(40deg) scale(1.1);  border-radius: 60% 40% 55% 45% / 45% 60% 40% 55%; }
-    40%      { transform: translate(-30%, 40%) rotate(90deg) scale(1.25); border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; }
-    60%      { transform: translate(-20%, 25%) rotate(150deg) scale(1.1); border-radius: 55% 45% 60% 40% / 40% 55% 45% 60%; }
-    80%      { transform: translate(-5%, 8%) rotate(220deg) scale(.95);   border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; }
-}
-@keyframes m3 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1);          border-radius: 50%; }
-    25%      { transform: translate(-20%, -25%) rotate(-50deg) scale(1.1); border-radius: 58% 42% 50% 50% / 42% 58% 45% 55%; }
-    50%      { transform: translate(-40%, -35%) rotate(-110deg) scale(1.2); border-radius: 42% 58% 55% 45% / 55% 42% 58% 45%; }
-    75%      { transform: translate(-15%, -10%) rotate(-170deg) scale(.95); border-radius: 55% 45% 42% 58% / 48% 55% 45% 52%; }
-}
-@keyframes m6 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1);           border-radius: 50%; }
-    25%      { transform: translate(-25%, -15%) rotate(60deg) scale(1.05);  border-radius: 60% 40% 48% 52% / 45% 58% 42% 55%; }
-    50%      { transform: translate(-45%, -40%) rotate(120deg) scale(1.15); border-radius: 44% 56% 58% 42% / 56% 44% 52% 48%; }
-    75%      { transform: translate(-20%, -35%) rotate(200deg) scale(1.05); border-radius: 52% 48% 40% 60% / 42% 52% 58% 48%; }
+@keyframes lava {
+    0%   { transform: translate(0, 0) scale(1.1, .9);                               border-radius: 50%; }
+    30%  { transform: translate(calc(var(--dx) * .4), -35vh) scale(.88, 1.18);     border-radius: 45% 55% 50% 50% / 60% 60% 40% 40%; }
+    60%  { transform: translate(var(--dx), -75vh) scale(.92, 1.12);                border-radius: 55% 45% 48% 52% / 58% 55% 45% 42%; }
+    100% { transform: translate(calc(var(--dx) * .5), -115vh) scale(1.15, .88);    border-radius: 50% 50% 45% 55% / 45% 45% 55% 55%; }
 }
 
 /* Grano sutil encima de las manchas */
