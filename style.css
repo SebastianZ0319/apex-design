@@ -303,21 +303,17 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     background: radial-gradient(var(--spot) at 50% 50%, var(--green) 0%, rgba(182, 245, 0, .55) 30%, rgba(182, 245, 0, .12) 58%, transparent 75%);
     transform-origin: 50% 50%;
 }
-/* 1) Parpadeo tipo neón al encenderse  2) el foco se balancea y respira */
-.intro.visible .intro__light { animation: lightOn 2.2s .2s var(--ease) forwards; }
-.intro.visible .intro__light::before { animation: spotSweep 9s 2.4s ease-in-out infinite; }
+/* 1) La luz aparece de a poco desde la esquina (2s)  2) el foco se balancea suave */
+.intro.visible .intro__light { animation: lightOn 2s .2s cubic-bezier(.25, .1, .25, 1) forwards; }
+.intro.visible .intro__light::before { animation: spotSweep 9s 2.2s ease-in-out infinite; }
 @keyframes lightOn {
-    0%   { opacity: 0;   transform: scale(.7); }
-    12%  { opacity: .6; }
-    18%  { opacity: .1; }
-    26%  { opacity: .8; }
-    32%  { opacity: .3; }
-    100% { opacity: 1;   transform: scale(1); }
+    from { opacity: 0; transform: scale(.4); }
+    to   { opacity: 1; transform: scale(1); }
 }
 @keyframes spotSweep {
-    0%, 100% { transform: rotate(0deg) scale(1);     opacity: 1; }
-    30%      { transform: rotate(-12deg) scale(1.12); opacity: .85; }
-    65%      { transform: rotate(14deg) scale(.92);  opacity: 1; }
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    30%      { transform: rotate(-12deg) scale(1.12); }
+    65%      { transform: rotate(14deg) scale(.92); }
 }
 .intro__brand, .intro__info { position: relative; z-index: 1; }
 .intro__brand { display: flex; align-items: flex-end; gap: 1.2rem; }
