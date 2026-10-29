@@ -451,7 +451,9 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     justify-content: center;
     gap: .8rem;
 }
-.about__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+/* Los dos botones (hoja de vida y portafolio) siempre lado a lado, mismo ancho */
+.about__actions { display: flex; gap: 1rem; margin-top: 2.5rem; }
+.about__actions .btn { flex: 1 1 0; }
 .btn__icon {
     position: relative;
     width: 12px; height: 14px;
@@ -591,7 +593,8 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     .about__photo { min-height: 0; aspect-ratio: 4 / 5; }
     .contact { padding-inline: 16px; }
     .btn { align-self: stretch; text-align: center; }
-    .about__actions .btn { flex: 1 1 100%; }
+    .about__actions { gap: .6rem; }
+    .about__actions .btn { padding-inline: .8rem; font-size: .7rem; }
     .intro__light { background: radial-gradient(ellipse 120% 70% at 0% 0%, var(--green) 0%, rgba(182, 245, 0, .55) 30%, rgba(182, 245, 0, .12) 58%, transparent 75%); }
     .sw { width: 52px; height: 52px; font-size: 1.3rem; border-radius: 12px; }
     .sw--canva { font-size: .8rem; }
