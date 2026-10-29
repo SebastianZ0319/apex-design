@@ -4,8 +4,9 @@ const hideLoader = () => {
     document.getElementById('loader').classList.add('hide');
     document.body.classList.remove('is-loading');
 };
-document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 1200));
-setTimeout(hideLoader, 3000); // respaldo por si algo tarda
+// 2.4s: el logo termina de entrar (0.3s + 1.6s) y alcanza a brillar un momento
+document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 2400));
+setTimeout(hideLoader, 4000); // respaldo por si algo tarda
 
 // ============ HEADER AL HACER SCROLL ============
 const header = document.getElementById('header');

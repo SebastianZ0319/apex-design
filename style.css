@@ -60,7 +60,7 @@ img { display: block; max-width: 100%; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: clip-path 1s var(--ease);
+    transition: clip-path 1.3s var(--ease);
     clip-path: inset(0 0 0 0);
 }
 .loader.hide { clip-path: inset(0 0 100% 0); }
@@ -69,7 +69,7 @@ img { display: block; max-width: 100%; }
     width: min(180px, 40vw);
     opacity: 0;
     transform: translateY(20px) scale(.95);
-    animation: logoIn 1s .2s var(--ease) forwards, glow 2s 1.2s ease-in-out infinite alternate;
+    animation: logoIn 1.6s .3s var(--ease) forwards, glow 2s 1.9s ease-in-out infinite alternate;
 }
 @keyframes logoIn { to { opacity: 1; transform: none; } }
 @keyframes glow {
