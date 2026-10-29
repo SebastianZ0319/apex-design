@@ -302,6 +302,7 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     position: absolute;
     inset: 0;
     background: linear-gradient(to right, transparent 30%, rgba(0, 0, 0, .55) 55%, rgba(0, 0, 0, .9) 75%);
+    z-index: 2;
 }
 .fluid__blobs {
     position: absolute;
@@ -317,19 +318,30 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
 .blob--white { background: radial-gradient(circle, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 70%); }
 .blob--lime  { background: radial-gradient(circle, var(--green) 0%, rgba(182, 245, 0, 0) 70%); }
 
-.b1 { width: 55vmax; height: 55vmax; top: 0;   left: 5%;  animation: m1 18s ease-in-out infinite; }
-.b2 { width: 50vmax; height: 50vmax; top: 10%; left: 30%; animation: m2 22s ease-in-out infinite; }
-.b3 { width: 45vmax; height: 45vmax; top: 45%; left: 15%; animation: m3 20s ease-in-out infinite; }
+.b1 { width: 55vmax; height: 55vmax; top: 0;   left: 45%; animation: m1 18s ease-in-out infinite; }
+.b2 { width: 50vmax; height: 50vmax; top: 10%; left: 0;   animation: m2 22s ease-in-out infinite; }
+.b3 { width: 45vmax; height: 45vmax; top: 45%; left: 35%; animation: m3 20s ease-in-out infinite; }
 .b4 { width: 40vmax; height: 40vmax; top: 55%; left: 0;   animation: m4 24s ease-in-out infinite; }
 .b5 { width: 38vmax; height: 38vmax; top: 30%; left: 55%; animation: m5 26s ease-in-out infinite; }
-.b6 { width: 35vmax; height: 35vmax; top: 70%; left: 45%; animation: m6 21s ease-in-out infinite; }
+.b6 { width: 35vmax; height: 35vmax; top: 70%; left: 60%; animation: m6 21s ease-in-out infinite; }
 
-@keyframes m1 { 0%, 100% { transform: translate(0, 0) scale(1); }    50% { transform: translate(20%, 30%) scale(1.25); } }
-@keyframes m2 { 0%, 100% { transform: translate(0, 0) scale(1); }    50% { transform: translate(-35%, 25%) scale(.85); } }
-@keyframes m3 { 0%, 100% { transform: translate(0, 0) scale(1); }    33% { transform: translate(30%, -30%) scale(1.15); } 66% { transform: translate(-15%, -10%) scale(.9); } }
-@keyframes m4 { 0%, 100% { transform: translate(0, 0) scale(1.1); }  50% { transform: translate(35%, -40%) scale(.9); } }
-@keyframes m5 { 0%, 100% { transform: translate(0, 0) scale(1); }    50% { transform: translate(-40%, 20%) scale(1.2); } }
-@keyframes m6 { 0%, 100% { transform: translate(0, 0) scale(.9); }   50% { transform: translate(-30%, -45%) scale(1.15); } }
+@keyframes m1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30%, 40%) scale(1.25); } }
+@keyframes m2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40%, 30%) scale(.85); } }
+@keyframes m3 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-40%, -35%) scale(1.2); } }
+@keyframes m4 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(50%, -30%) scale(1.3); } }
+@keyframes m5 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-35%, 45%) scale(.8); } }
+@keyframes m6 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-45%, -40%) scale(1.15); } }
+
+/* Grano sutil encima de las manchas */
+.fluid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: .12;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
 .intro__brand, .intro__info { position: relative; z-index: 1; }
 .intro__brand { display: flex; align-items: flex-end; gap: 1.2rem; }
 .intro__logo { width: min(320px, 55%); height: auto; filter: drop-shadow(0 0 28px rgba(0, 0, 0, .7)); }
