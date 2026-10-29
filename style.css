@@ -300,27 +300,41 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     inset: -20%;
     filter: blur(70px) saturate(110%);
 }
-/* Lámpara de lava desenfocada: cada mancha sube desde abajo estirándose, se aplasta arriba
-   y vuelve a bajar (alternate). Tamaño, posición, duración y retraso vienen del HTML */
+/* Lámpara de lava desenfocada. El movimiento va en dos capas con ritmos distintos:
+   .blob sube y baja, y ::before se mece de lado, se estira y se deforma.
+   Como nunca frenan a la vez, las manchas trazan curvas fluidas.
+   Tamaño, posición, duración y retraso vienen del HTML */
 .blob {
     position: absolute;
     top: 80%;
     left: var(--x);
     width: var(--s);
     height: var(--s);
+    will-change: transform;
+    animation: lavaY var(--t) var(--delay) ease-in-out infinite alternate;
+}
+.blob::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     border-radius: 50%;
     will-change: transform;
-    animation: lava var(--t) var(--delay) ease-in-out infinite alternate;
+    animation:
+        lavaX calc(var(--t) * .62) var(--delay) ease-in-out infinite alternate,
+        lavaMorph calc(var(--t) * .38) var(--delay) ease-in-out infinite alternate;
 }
-.blob--black { background: radial-gradient(circle, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, 0) 70%); }
-.blob--white { background: radial-gradient(circle, var(--white) 0%, rgba(255, 255, 255, 0) 70%); }
-.blob--lime  { background: radial-gradient(circle, var(--green) 0%, rgba(182, 245, 0, 0) 70%); }
+.blob--black::before { background: radial-gradient(circle, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, 0) 70%); }
+.blob--white::before { background: radial-gradient(circle, var(--white) 0%, rgba(255, 255, 255, 0) 70%); }
+.blob--lime::before  { background: radial-gradient(circle, var(--green) 0%, rgba(182, 245, 0, 0) 70%); }
 
-@keyframes lava {
-    0%   { transform: translate(0, 0) scale(1.1, .9);                               border-radius: 50%; }
-    30%  { transform: translate(calc(var(--dx) * .4), -35vh) scale(.88, 1.18);     border-radius: 45% 55% 50% 50% / 60% 60% 40% 40%; }
-    60%  { transform: translate(var(--dx), -75vh) scale(.92, 1.12);                border-radius: 55% 45% 48% 52% / 58% 55% 45% 42%; }
-    100% { transform: translate(calc(var(--dx) * .5), -115vh) scale(1.15, .88);    border-radius: 50% 50% 45% 55% / 45% 45% 55% 55%; }
+@keyframes lavaY { to { transform: translateY(-115vh); } }
+@keyframes lavaX {
+    from { transform: translateX(calc(var(--dx) * -1)) scale(1.12, .9); }
+    to   { transform: translateX(var(--dx)) scale(.88, 1.2); }
+}
+@keyframes lavaMorph {
+    from { border-radius: 50%; }
+    to   { border-radius: 42% 58% 55% 45% / 58% 45% 55% 42%; }
 }
 
 /* Grano sutil encima de las manchas */
@@ -651,5 +665,5 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    .pattern-band, .marquee__track, .blob { animation: none; }
+    .pattern-band, .marquee__track, .blob, .blob::before { animation: none; }
 }
