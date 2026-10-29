@@ -287,13 +287,25 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
 .intro__light {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 70% 100% at 0% 0%, var(--green) 0%, rgba(182, 245, 0, .55) 30%, rgba(182, 245, 0, .12) 58%, transparent 75%);
     opacity: 0;
     transform: scale(.7);
     transform-origin: top left;
+    pointer-events: none;
 }
-/* Parpadeo tipo neón y luego queda encendida */
+/* El haz mide el doble de la sección y su centro es la esquina superior izquierda:
+   así puede girar sobre esa esquina como un foco sin dejar bordes vacíos */
+.intro__light::before {
+    --spot: ellipse 35% 50%;
+    content: '';
+    position: absolute;
+    top: -100%; left: -100%;
+    width: 200%; height: 200%;
+    background: radial-gradient(var(--spot) at 50% 50%, var(--green) 0%, rgba(182, 245, 0, .55) 30%, rgba(182, 245, 0, .12) 58%, transparent 75%);
+    transform-origin: 50% 50%;
+}
+/* 1) Parpadeo tipo neón al encenderse  2) el foco se balancea y respira */
 .intro.visible .intro__light { animation: lightOn 2.2s .2s var(--ease) forwards; }
+.intro.visible .intro__light::before { animation: spotSweep 9s 2.4s ease-in-out infinite; }
 @keyframes lightOn {
     0%   { opacity: 0;   transform: scale(.7); }
     12%  { opacity: .6; }
@@ -301,6 +313,11 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     26%  { opacity: .8; }
     32%  { opacity: .3; }
     100% { opacity: 1;   transform: scale(1); }
+}
+@keyframes spotSweep {
+    0%, 100% { transform: rotate(0deg) scale(1);     opacity: 1; }
+    30%      { transform: rotate(-12deg) scale(1.12); opacity: .85; }
+    65%      { transform: rotate(14deg) scale(.92);  opacity: 1; }
 }
 .intro__brand, .intro__info { position: relative; z-index: 1; }
 .intro__brand { display: flex; align-items: flex-end; gap: 1.2rem; }
@@ -595,7 +612,7 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
     .btn { align-self: stretch; text-align: center; }
     .about__actions { gap: .6rem; }
     .about__actions .btn { padding-inline: .8rem; font-size: .7rem; }
-    .intro__light { background: radial-gradient(ellipse 120% 70% at 0% 0%, var(--green) 0%, rgba(182, 245, 0, .55) 30%, rgba(182, 245, 0, .12) 58%, transparent 75%); }
+    .intro__light::before { --spot: ellipse 60% 35%; }
     .sw { width: 52px; height: 52px; font-size: 1.3rem; border-radius: 12px; }
     .sw--canva { font-size: .8rem; }
     .brand img { height: 36px; }
@@ -608,5 +625,5 @@ body:not(.is-loading) .hero__content > :nth-child(3) { transition-delay: .8s; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    .pattern-band, .marquee__track { animation: none; }
+    .pattern-band, .marquee__track, .intro.visible .intro__light::before { animation: none; }
 }
