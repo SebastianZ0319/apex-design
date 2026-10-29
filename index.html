@@ -28,7 +28,7 @@
         <nav class="nav" id="nav">
             <a href="#inicio" class="nav__link active">Inicio</a>
             <a href="#quienes-somos" class="nav__link">Quiénes somos</a>
-            <a href="#servicio" class="nav__link">Servicio</a>
+            <a href="#servicio" class="nav__link">Servicios</a>
             <a href="#proyectos" class="nav__link">Proyectos</a>
             <a href="#sobre-mi" class="nav__link">Sobre mí</a>
             <a href="#contacto" class="nav__link">Contacto</a>
@@ -52,114 +52,90 @@
         </section>
 
         <!-- ============ QUIÉNES SOMOS ============ -->
-        <section class="section" id="quienes-somos">
-            <div class="section__head reveal">
-                <span class="eyebrow">Quiénes somos</span>
-                <h2 class="title-lg">El punto donde todo encaja</h2>
+        <section class="intro" id="quienes-somos">
+            <div class="intro__light" aria-hidden="true"></div>
+            <div class="intro__brand reveal">
+                <img class="intro__logo" src="img/web/isotipo.webp" alt="" width="293" height="129">
+                <span class="intro__name">Design Apex</span>
+            </div>
+            <div class="intro__info reveal">
+                <h2 class="title-lg">Quiénes<br>somos</h2>
                 <p class="section__text">Apex nace del automovilismo: la línea perfecta que toma un piloto al entrar en una curva. En diseño, esa línea representa <strong>precisión, intención y dirección</strong>.</p>
+            </div>
+        </section>
+
+        <!-- ============ BANNER DE SOFTWARES ============ -->
+        <div class="marquee marquee--software" aria-label="Softwares que usamos">
+            <div class="marquee__track">
+                <ul class="marquee__group">
+                    <li class="sw sw--ai" title="Adobe Illustrator">Ai</li>
+                    <li class="sw sw--ps" title="Adobe Photoshop">Ps</li>
+                    <li class="sw sw--pr" title="Adobe Premiere Pro">Pr</li>
+                    <li class="sw sw--ae" title="Adobe After Effects">Ae</li>
+                    <li class="sw sw--canva" title="Canva">Canva</li>
+                    <li class="sw sw--davinci" title="DaVinci Resolve"><i></i><i></i><i></i></li>
+                </ul>
+                <ul class="marquee__group" aria-hidden="true">
+                    <li class="sw sw--ai">Ai</li>
+                    <li class="sw sw--ps">Ps</li>
+                    <li class="sw sw--pr">Pr</li>
+                    <li class="sw sw--ae">Ae</li>
+                    <li class="sw sw--canva">Canva</li>
+                    <li class="sw sw--davinci"><i></i><i></i><i></i></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ============ SERVICIOS Y PRODUCTOS ============ -->
+        <!-- Toda la tarjeta es un botón que lleva a Contacto -->
+        <section class="section" id="servicio">
+            <div class="section__head reveal">
+                <h2 class="title-lg">Servicios y productos</h2>
             </div>
 
             <div class="tiles">
-                <article class="tile reveal">
+                <a href="#contacto" class="tile reveal">
                     <img class="tile__media" src="img/web/manifiesto-sm.webp" srcset="img/web/manifiesto-sm.webp 800w, img/web/manifiesto-lg.webp 1466w" sizes="(max-width: 640px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
                     <div class="tile__content">
-                        <span class="eyebrow">Manifiesto</span>
-                        <h3 class="title-md">Precisión e intención</h3>
-                        <p class="tile__text">Cada pieza se diseña como se traza una curva: con dirección clara y sin trazos de sobra.</p>
+                        <h3 class="title-md">Producción audiovisual</h3>
+                        <p class="tile__text">Descripción corta</p><!-- TODO: descripción -->
+                        <span class="discover discover--sm">Cotizar <i class="discover__icon"></i></span>
                     </div>
-                </article>
-                <article class="tile reveal">
+                </a>
+                <a href="#contacto" class="tile reveal">
                     <img class="tile__media" src="img/web/comunidad-sm.webp" srcset="img/web/comunidad-sm.webp 800w, img/web/comunidad-lg.webp 1123w" sizes="(max-width: 640px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
                     <div class="tile__content">
-                        <span class="eyebrow">Comunidad</span>
-                        <h3 class="title-md">El automovilismo también se diseña</h3>
-                        <p class="tile__text">Pilotos, clubes, eventos, talleres, coleccionistas y marcas de autopartes y reprogramación.</p>
+                        <h3 class="title-md">Graphic Design</h3>
+                        <p class="tile__text">Descripción corta</p><!-- TODO: descripción -->
+                        <span class="discover discover--sm">Cotizar <i class="discover__icon"></i></span>
                     </div>
-                </article>
-                <article class="tile reveal">
+                </a>
+                <a href="#contacto" class="tile reveal">
                     <img class="tile__media" src="img/web/tracks-neon-sm.webp" srcset="img/web/tracks-neon-sm.webp 800w, img/web/tracks-neon-lg.webp 941w" sizes="(max-width: 640px) 100vw, 50vw" alt="" style="object-position: center 30%" loading="lazy" decoding="async">
                     <div class="tile__content">
-                        <span class="eyebrow">Metodología</span>
-                        <h3 class="title-md">Attack</h3>
-                        <p class="tile__text">Nuestra forma de encontrar, construir y llevar una idea hasta su punto ideal.</p>
+                        <h3 class="title-md">Branding</h3>
+                        <p class="tile__text">Descripción corta</p><!-- TODO: descripción -->
+                        <span class="discover discover--sm">Cotizar <i class="discover__icon"></i></span>
                     </div>
-                </article>
-                <article class="tile reveal">
+                </a>
+                <a href="#contacto" class="tile reveal">
                     <img class="tile__media" src="img/web/livery-lmp-sm.webp" srcset="img/web/livery-lmp-sm.webp 800w, img/web/livery-lmp-lg.webp 1022w" sizes="(max-width: 640px) 100vw, 50vw" alt="" loading="lazy" decoding="async">
                     <div class="tile__content">
-                        <span class="eyebrow">Modelo de negocio</span>
-                        <h3 class="title-md">B2C</h3>
-                        <p class="tile__text">Servicios creativos directo al consumidor final: personas apasionadas por el diseño, los autos, el arte y los eventos.</p>
+                        <h3 class="title-md">Track line</h3>
+                        <p class="tile__text">Descripción corta</p><!-- TODO: descripción -->
+                        <span class="discover discover--sm">Cotizar <i class="discover__icon"></i></span>
                     </div>
-                </article>
+                </a>
             </div>
         </section>
 
         <!-- ============ FRANJA DE PATRÓN ============ -->
         <div class="pattern-band" aria-hidden="true"></div>
 
-        <!-- ============ SERVICIO ============ -->
-        <section class="section section--dark" id="servicio">
-            <div class="section__head reveal">
-                <span class="eyebrow">Servicio</span>
-                <h2 class="title-lg">Lo que hacemos</h2>
-                <p class="section__text">Diseño con identidad propia para quienes viven el automovilismo, en la pista y en el sim racing.</p>
-            </div>
-
-            <div class="services">
-                <article class="service reveal">
-                    <span class="service__num">01</span>
-                    <img class="service__media" src="img/web/livery-asp-sm.webp" srcset="img/web/livery-asp-sm.webp 800w, img/web/livery-asp-lg.webp 974w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw" alt="" loading="lazy" decoding="async">
-                    <h3 class="service__title">Liverys</h3>
-                    <p class="service__text">Diseñamos tu livery de acuerdo a tu marca y tus patrocinadores, sea livery físico o de sim racing.</p>
-                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
-                </article>
-                <article class="service reveal">
-                    <span class="service__num">02</span>
-                    <img class="service__media" src="img/web/tracks-neon-sm.webp" srcset="img/web/tracks-neon-sm.webp 800w, img/web/tracks-neon-lg.webp 941w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw" alt="" loading="lazy" decoding="async">
-                    <h3 class="service__title">Tracks</h3>
-                    <p class="service__text">Tu circuito favorito puedes tenerlo como decoración en tu hogar.</p>
-                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
-                </article>
-                <article class="service reveal">
-                    <span class="service__num">03</span>
-                    <img class="service__media" src="img/web/piezas-track-day-sm.webp" srcset="img/web/piezas-track-day-sm.webp 800w, img/web/piezas-track-day-lg.webp 940w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw" alt="" style="object-position: center 25%" loading="lazy" decoding="async">
-                    <h3 class="service__title">Piezas gráficas</h3>
-                    <p class="service__text">Piezas gráficas para tu evento, taller, marca, track day o meet day.</p>
-                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
-                </article>
-                <article class="service reveal">
-                    <span class="service__num">04</span>
-                    <div class="service__media service__media--pattern"></div>
-                    <h3 class="service__title">Branding</h3>
-                    <p class="service__text">Identidad visual completa para marcas, equipos y comunidades del mundo motor.</p>
-                    <a href="#contacto" class="discover discover--sm">Cotizar <i class="discover__icon"></i></a>
-                </article>
-            </div>
-
-            <!-- Metodología ATTACK -->
-            <div class="method reveal">
-                <div class="method__head">
-                    <span class="eyebrow">Metodología</span>
-                    <h3 class="title-md">Attack</h3>
-                    <p class="method__tags">Agresivo · Limpio · Saturado</p>
-                </div>
-                <ol class="method__steps">
-                    <li><span>01</span>Punto de partida</li>
-                    <li><span>02</span>Recorrido</li>
-                    <li><span>03</span>Puntos clave</li>
-                    <li><span>04</span>Resultado</li>
-                </ol>
-                <p class="method__tools">Blueprint · Design thinking · Codiseño · Validación</p>
-            </div>
-        </section>
-
         <!-- ============ PROYECTOS ============ -->
         <section class="section" id="proyectos">
             <div class="section__head reveal">
-                <span class="eyebrow">Proyectos</span>
-                <h2 class="title-lg">Trabajo en pista</h2>
-                <p class="section__text">Una selección de liverys y piezas gráficas.</p>
+                <h2 class="title-lg">Proyectos</h2>
             </div>
             <div class="gallery">
                 <figure class="gallery__item gallery__item--wide reveal">
@@ -207,9 +183,27 @@
                     <div class="stat"><span class="stat__num">Global</span><span class="stat__label">Disponible para viajar</span></div>
                 </div>
 
-                <a href="cv/santiago-bedoya-cv.pdf" class="btn btn--cv" download="Santiago Bedoya CV.pdf">Descargar hoja de vida <i class="btn__icon" aria-hidden="true"></i></a>
+                <div class="about__actions">
+                    <a href="cv/santiago-bedoya-cv.pdf" class="btn btn--cv" download="Santiago Bedoya CV.pdf">Descargar hoja de vida <i class="btn__icon" aria-hidden="true"></i></a>
+                    <a href="portafolio/santiago-bedoya-portafolio.pdf" class="btn btn--cv" download="Santiago Bedoya Portafolio.pdf">Descargar portafolio <i class="btn__icon" aria-hidden="true"></i></a>
+                </div>
             </div>
         </section>
+
+        <!-- ============ BANNER DE MARCAS ============ -->
+        <!-- TODO: cuando lleguen los logos, poner un <li class="brand"><img ...></li> por marca en cada grupo (el segundo grupo es copia del primero para el bucle) -->
+        <!--
+        <div class="marquee marquee--brands" aria-label="Marcas con las que hemos trabajado">
+            <div class="marquee__track">
+                <ul class="marquee__group">
+                    <li class="brand"><img src="img/web/marcas/marca.webp" alt="Marca" loading="lazy"></li>
+                </ul>
+                <ul class="marquee__group" aria-hidden="true">
+                    <li class="brand"><img src="img/web/marcas/marca.webp" alt="" loading="lazy"></li>
+                </ul>
+            </div>
+        </div>
+        -->
 
         <!-- ============ CONTACTO ============ -->
         <section class="section section--dark contact" id="contacto">
@@ -225,6 +219,8 @@
                 <div class="socials">
                     <a href="https://www.instagram.com/santibedoya____/" target="_blank" rel="noopener">Instagram</a>
                     <a href="https://wa.me/573132228989" target="_blank" rel="noopener">WhatsApp</a>
+                    <a href="https://www.behance.net/santiagobedoya1/info" target="_blank" rel="noopener">Behance</a>
+                    <a href="https://www.linkedin.com/in/santiago-bedoya-b52647306/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
             <form class="form reveal" onsubmit="event.preventDefault()">

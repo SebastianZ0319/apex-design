@@ -45,7 +45,8 @@ const revealObserver = new IntersectionObserver(entries => {
         }
     });
 }, { threshold: .15 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+// .intro también se observa para encender la luz de "Quiénes somos"
+document.querySelectorAll('.reveal, .intro').forEach(el => revealObserver.observe(el));
 
 // ============ AÑO DEL FOOTER ============
 document.getElementById('year').textContent = new Date().getFullYear();
